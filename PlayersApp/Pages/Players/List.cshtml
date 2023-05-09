@@ -1,0 +1,39 @@
+﻿@page
+@model PlayersApp.Pages.Players.ListModel
+@{
+}
+
+<h1 class="mb-3">List of players</h1>
+@if(Model.players != null && Model.players.Any()){
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Rank</th>
+                <th>Salary</th>
+                <th>Phone Number</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var p in Model.players)
+            {
+                <tr>
+                    <td>@p.Name</td>
+                    <td>@p.Email</td>
+                    <td>@p.Rank</td>
+                    <td>@p.Salary</td>
+                    <td>@p.Phone</td>
+                    <td>
+                        <a href="/Players/Edit/@p.Id" class="btn btn-dark">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+else{
+    <p>No players found</p>
+}

@@ -1,0 +1,71 @@
+﻿@page "{id:Guid}"
+@model PlayersApp.Pages.Players.EditModel
+@{
+    var message = ViewData["Message"]?.ToString();
+}
+
+<h2 class="mb-3">Edit</h2>
+<form method="post">
+    @if (!string.IsNullOrWhiteSpace(message))
+    {
+            <div class="alert alert-success" role="alert">
+            @message
+            </div>
+    }
+    <div class="col-md-6 mb-3">
+        <label for="id">Id</label>
+        <input type="text" class="form-control" id="id" asp-for="editPlayerVM.Id" readonly>
+        <div class="invalid-feedback">
+            Valid name is required.
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label for="Name">Full name</label>
+        <input type="text" class="form-control" id="Name" asp-for="editPlayerVM.Name">
+        <div class="invalid-feedback">
+            Valid name is required.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="email">Email </label>
+        <input type="email" class="form-control" id="email" asp-for="editPlayerVM.Email">
+        <div class="invalid-feedback">
+        Please enter a valid email address for shipping updates.
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <label for="rank">Rank</label>
+        <select class="custom-select d-block w-100" id="rank" asp-for="editPlayerVM.Rank" required>
+        <option value="">Choose...</option>
+        @for (int i = 1; i <= 10; i++)
+        {
+                    <option>@i</option>
+        }
+        </select>
+        <div class="invalid-feedback">
+            Please select a rank.
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label for="salary">Salary</label>
+        <input type="number" class="form-control" id="salary" asp-for="editPlayerVM.Salary" required>
+        <div class="invalid-feedback">
+            Valid Salary is required.
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label for="phone">Phone Number</label>
+        <input type="number" class="form-control" id="phone" asp-for="editPlayerVM.Phone" required>
+        <div class="invalid-feedback">
+            Valid Phone Number is required.
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Edit</button>
+    </div>
+    <a class="navbar-brand text-danger" asp-area="" asp-page="/Players/List">Return</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+</form>
