@@ -21,47 +21,7 @@
     </div>
     <div class="col-md-6 mb-3">
         <label for="Name">Full name</label>
-        <input type="text" class="form-control" id="Name" asp-for="deletePlayerVM.Name" value="deletePlayerVM.Name">
-        <div class="invalid-feedback">
-            Valid name is required.
-        </div>
-    </div>
-    <div class="mb-3">
-        <label for="email">Email </label>
-        <input type="email" class="form-control" id="email" asp-for="deletePlayerVM.Email" value="deletePlayerVM.Email">
-        <div class="invalid-feedback">
-        Please enter a valid email address for shipping updates.
-        </div>
-    </div>
-    <div class="col-md-5 mb-3">
-        <label for="rank">Rank</label>
-        <select class="custom-select d-block w-100" id="rank" asp-for="deletePlayerVM.Rank" value="deletePlayerVM.Rank">
-        @for (int i = 1; i <= 10; i++)
-        {
-                    <option>@i</option>
-        }
-        </select>
-        <div class="invalid-feedback">
-            Please select a rank.
-        </div>
-    </div>
-    <div class="col-md-6 mb-3">
-        <label for="salary">Salary</label>
-        <input type="number" class="form-control" id="salary" asp-for="deletePlayerVM.Salary" value="deletePlayerVM.Salary">
-        <div class="invalid-feedback">                                  
-            Valid Salary is required.                                   
-        </div>                                                          
-    </div>                                                              
-    <div class="col-md-6 mb-3">                                         
-        <label for="phone">Phone Number</label>                         
-        <input type="number" class="form-control" id="phone" asp-for="deletePlayerVM.Phone" value="deletePlayerVM.Phone">
-        <div class="invalid-feedback">
-            Valid Phone Number is required.
-        </div>
-    </div>
-    <div class="col-md-6 mb-3">
-        <label for="url">Url</label>
-        <input type="url" class="form-control" id="url" asp-for="deletePlayerVM.Url" >
+        <input type="text" class="form-control" id="Name"  value="deletePlayerVM.Name">
         <div class="invalid-feedback">
             Valid name is required.
         </div>

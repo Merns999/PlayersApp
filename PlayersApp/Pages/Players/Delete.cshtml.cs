@@ -19,21 +19,16 @@ namespace PlayersApp.Pages.Players
 
         public void OnGet()
         {
-
+           
         }
-        public void OnPost()
+        public void OnPost(Guid Id)
         {
             if (deletePlayerVM != null)
             {
-                var existingPlayer = playersDbContext.Players.Find(deletePlayerVM.Id);
+                var existingPlayer = playersDbContext.Players.Find(Id);
                 if (existingPlayer != null)
                 {
-                    existingPlayer.Name =   deletePlayerVM.Name;
-                    existingPlayer.Salary = deletePlayerVM.Salary;
-                    existingPlayer.Email =  deletePlayerVM.Email;
-                    existingPlayer.Phone =  deletePlayerVM.Phone;
-                    existingPlayer.Rank =   deletePlayerVM.Rank;
-
+                    
                     playersDbContext.Remove(existingPlayer);
                     playersDbContext.SaveChanges();
 
