@@ -14,6 +14,8 @@
                 <th>Salary</th>
                 <th>Phone Number</th>
                 <th> </th>
+                <th> </th>
+                <th> </th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +28,13 @@
                     <td>@p.Salary</td>
                     <td>@p.Phone</td>
                     <td>
+                        <a href="@p.Url" class="btn btn-primary">Watch</a>
+                    </td>
+                    <td>
                         <a href="/Players/Edit/@p.Id" class="btn btn-dark">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/Players/Delete/@p.Id" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             }

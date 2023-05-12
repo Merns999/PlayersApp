@@ -1,6 +1,6 @@
 ﻿namespace PlayersApp.Models.ViewModels
 {
-    public class EditPlayerVM
+    public class DeletePlayerVM
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

@@ -12,8 +12,8 @@ using PlayersApp.Data;
 namespace PlayersApp.Migrations
 {
     [DbContext(typeof(PlayersDbContext))]
-    [Migration("20230505055203_Initial Migration")]
-    partial class InitialMigration
+    [Migration("20230509125610_Second")]
+    partial class Second
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,10 @@ namespace PlayersApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Salary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Url")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

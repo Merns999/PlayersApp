@@ -28,7 +28,8 @@ namespace PlayersApp.Pages.Players
                 Email = addPlayerVM.Email,
                 Salary = addPlayerVM.Salary,
                 Phone = addPlayerVM.Phone,
-                Rank = addPlayerVM.Rank
+                Rank = addPlayerVM.Rank,
+                Url = addPlayerVM.Url
             };
 
             playersDbContext.Players.Add(player);

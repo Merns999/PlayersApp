@@ -56,6 +56,13 @@
         </div>
     </div>
     <div class="col-md-6 mb-3">
+        <label for="url">Url</label>
+        <input type="url" class="form-control" id="url" asp-for="addPlayerVM.Url" required>
+        <div class="invalid-feedback">
+            Valid name is required.
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
         <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
     </div>
     <a class="navbar-brand text-danger" asp-area="" asp-page="/Players/List">Return</a>
