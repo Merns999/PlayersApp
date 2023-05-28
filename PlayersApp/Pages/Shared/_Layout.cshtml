@@ -25,17 +25,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Players/List">List</a>
                         </li>
-                        @if(User.Identity != null && User.Identity.IsAuthenticated)
-                        {
+                        
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Players/Add">Add</a>
                             </li>
-                        }
+                        
                         
                     </ul>
                 </div>
             </div>
-            <partial name="_LoginPartial"/>
         </nav>
     </header>
     <div class="container">
@@ -52,7 +50,8 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/JQuery.js"></script>
+    <script src="~/js/Knockout.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

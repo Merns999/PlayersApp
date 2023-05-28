@@ -1,32 +1,36 @@
 ﻿@page
 @{
 }
-
-<form id="addPlayerForm" asp-action="AddPlayer">
+<head>
+    <script src="~/js/JQuery.js"></script>
+    <script src="~/js/Knockout.js"></script>
+    <script src="~/js/Add.js"></script>
+</head>
+<form id="addPlayerForm" >
     <h2>Add new Player</h2>
-        
-    
+
+
     <div class="col-md-6 mb-3">
         <label for="Name">Full name</label>
-        <input type="text" class="form-control" id="Name"  required>
+        <input type="text" class="form-control" id="Name" data-bind="value:Name" required>
         <div class="invalid-feedback">
             Valid name is required.
         </div>
     </div>
     <div class="mb-3">
         <label for="email">Email </label> 
-        <input type="email" class="form-control" id="email" placeholder="you@example.com" >
+        <input type="email" class="form-control" id="email" data-bind="value:Email" placeholder="you@example.com" >
         <div class="invalid-feedback">
         Please enter a valid email address for shipping updates.
         </div>
     </div>
     <div class="col-md-5 mb-3">
         <label for="rank">Rank</label>
-        <select class="custom-select d-block w-100" id="rank"  required>
+        <select class="custom-select d-block w-100" id="rank" data-bind="value:Rank" required>
         <option value="">Choose...</option>
             @for (int i = 1; i <= 10; i++)
             {
-                <option>@i</option>
+                    <option>@i</option>
             }
         </select>
         <div class="invalid-feedback">
@@ -35,21 +39,21 @@
     </div>
     <div class="col-md-6 mb-3">
         <label for="salary">Salary</label>
-        <input type="number" class="form-control" id="salary"  required>
+        <input type="number" class="form-control" id="salary" data-bind="value:Salary" required>
         <div class="invalid-feedback">
             Valid Salary is required.
         </div>
     </div>
     <div class="col-md-6 mb-3">
         <label for="phone">Phone Number</label>
-        <input type="number" class="form-control" id="phone" required>
+        <input type="number" class="form-control" id="phone" data-bind="value:Phone" required>
         <div class="invalid-feedback">
             Valid Phone Number is required.
         </div>
     </div>
     <div class="col-md-6 mb-3">
         <label for="url">Url</label>
-        <input type="url" class="form-control" id="url"  required>
+        <input type="url" class="form-control" id="url" data-bind="value:Url" required>
         <div class="invalid-feedback">
             Valid name is required.
         </div>
@@ -62,10 +66,3 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 </form>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-        <script src="~/js/site.js"></script>
-}

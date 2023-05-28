@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddControllers();
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
@@ -18,7 +20,6 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddDbContext<PlayersDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PlayersDbConnectionString")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<PlayersDbContext>();
 
 var app = builder.Build();
 
@@ -37,6 +38,8 @@ app.UseRouting();
 app.UseCors();
 
 app.UseAuthorization();
+
+app.MapControllers();
 
 app.MapRazorPages();
 

@@ -1,66 +1,31 @@
 ﻿@page
-@model PlayersApp.Pages.Players.ListModel
 @{
 }
 
+<head>
+    <script src="~/js/JQuery.js"></script>
+</head>
 <h1 class="mb-3">List of players</h1>
-@if(Model.players != null && Model.players.Any()){
-    <table class="table">
+<button class="btn" type="submit" value="Sort">Sort</button>
+
+    <table id="playersTable" class="table">
         <thead>
             <tr>
                 <th>Name</th>
-                @if (User.Identity != null && User.Identity.IsAuthenticated)
-                {
-                    <th>Email</th>
-                }
+                <th>Email</th>
                 <th>Rank</th>
                 <th>Salary</th> 
-                @if (User.Identity != null && User.Identity.IsAuthenticated)
-                {
-                    <th>Phone Number</th>
-                }
+                <th>Phone Number</th>
                 <th>Image </th>
-                @if (User.Identity != null && User.Identity.IsAuthenticated)
-                {
-                    <th>Edit </th>
-                    <th>Delete</th>
-                }
+                <th>Edit </th>
+                <th>Delete</th>
+                
             </tr>
         </thead>
-        <tbody>
-            @foreach(var p in Model.players)
-            {
-                <tr>
-                    <td>@p.Name</td>
-                    @if (User.Identity != null && User.Identity.IsAuthenticated)
-                    {
-                        <td>@p.Email</td>
-                    }
-                    <td>@p.Rank</td>
-                    <td>@p.Salary</td>
-                    @if (User.Identity != null && User.Identity.IsAuthenticated)
-                    {
-                        <td>@p.Phone</td>
-                    }
-                    <td>
-                        <a href="@p.Url" class="btn btn-primary btn-success">Image</a>
-                    </td>
-                    @if (User.Identity != null && User.Identity.IsAuthenticated)
-                    {
-                     <td>
-                        <a href="/Players/Edit/@p.Id" class="btn btn-dark">Edit</a>
-                    </td>
-                    <td>
-                        <a href="/Players/Delete/@p.Id" class="btn btn-danger">Delete</a>
-                    </td>
-                    }
-                    
-                </tr>
-            }
-        </tbody>
+        <tbody></tbody>
+            
 
     </table>
-}
-else{
-    <p>No players found</p>
-}
+
+<script src="~/js/List.js"></script>
+
