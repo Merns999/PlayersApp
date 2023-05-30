@@ -1,6 +1,6 @@
 ﻿namespace PlayersApp.Models.Domain
 {
-    public class Player
+    public class Player : IEntity
     {
         public Guid     Id      { get; set; }
         public string   Name    { get; set; }

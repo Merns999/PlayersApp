@@ -1,10 +1,11 @@
 ﻿
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PlayersApp.Models.Domain;
 
 namespace PlayersApp.Data
 {
-    public class PlayersDbContext : DbContext
+    public class PlayersDbContext : IdentityDbContext
     {
 
         public PlayersDbContext(DbContextOptions options) : base(options)

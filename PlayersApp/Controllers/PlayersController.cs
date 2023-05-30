@@ -5,119 +5,118 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol.Core.Types;
 using PlayersApp.Data;
+using PlayersApp.Data.EFCore;
 using PlayersApp.Models.Domain;
 
 namespace PlayersApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PlayersController : ControllerBase
+    public class PlayersController : MyPlayersController<Player, EfCorePlayerRepository>
     {
-        private readonly PlayersDbContext _context;
 
-        public PlayersController(PlayersDbContext context)
-        {
-            _context = context;
-        }
+        public PlayersController(EfCorePlayerRepository repository):base(repository) { }
+        
 
-        // GET: api/Players
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Player>>> GetPlayers()
-        {
-          if (_context.Players == null)
-          {
-              return NotFound();
-          }
-            return await _context.Players.ToListAsync();
-        }
+        //// GET: api/Players
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<Player>>> GetPlayers()
+        //{
+        //  if (_context.Players == null)
+        //  {
+        //      return NotFound();
+        //  }
+        //    return await _context.Players.ToListAsync();
+        //}
 
-        // GET: api/Players/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Player>> GetPlayer(Guid id)
-        {
-          if (_context.Players == null)
-          {
-              return NotFound();
-          }
-            var player = await _context.Players.FindAsync(id);
+        //// GET: api/Players/5
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<Player>> GetPlayer(Guid id)
+        //{
+        //  if (_context.Players == null)
+        //  {
+        //      return NotFound();
+        //  }
+        //    var player = await _context.Players.FindAsync(id);
 
-            if (player == null)
-            {
-                return NotFound();
-            }
+        //    if (player == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return player;
-        }
+        //    return player;
+        //}
 
-        // PUT: api/Players/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> EditPlayer(Guid id, Player player)
-        {
-            if (id != player.Id)
-            {
-                return BadRequest();
-            }
+        //// PUT: api/Players/5
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> EditPlayer(Guid id, Player player)
+        //{
+        //    if (id != player.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(player).State = EntityState.Modified;
+        //    _context.Entry(player).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PlayerExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!PlayerExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
-        // POST: api/Players
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Player>> AddPlayer(Player player)
-        {
-          if (_context.Players == null)
-          {
-              return Problem("Entity set 'PlayersDbContext.Players'  is null.");
-          }
-            _context.Players.Add(player);
-            await _context.SaveChangesAsync();
+        //// POST: api/Players
+        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPost]
+        //public async Task<ActionResult<Player>> AddPlayer(Player player)
+        //{
+        //  if (_context.Players == null)
+        //  {
+        //      return Problem("Entity set 'PlayersDbContext.Players'  is null.");
+        //  }
+        //    _context.Players.Add(player);
+        //    await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPlayer", new { id = player.Id }, player);
-        }
+        //    return CreatedAtAction("GetPlayer", new { id = player.Id }, player);
+        //}
 
-        // DELETE: api/Players/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePlayer(Guid id)
-        {
-            if (_context.Players == null)
-            {
-                return NotFound();
-            }
-            var player = await _context.Players.FindAsync(id);
-            if (player == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Players/5
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> DeletePlayer(Guid id)
+        //{
+        //    if (_context.Players == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    var player = await _context.Players.FindAsync(id);
+        //    if (player == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _context.Players.Remove(player);
-            await _context.SaveChangesAsync();
+        //    _context.Players.Remove(player);
+        //    await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
-        private bool PlayerExists(Guid id)
-        {
-            return (_context.Players?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
+        //private bool PlayerExists(Guid id)
+        //{
+        //    return (_context.Players?.Any(e => e.Id == id)).GetValueOrDefault();
+        //}
     }
 }
