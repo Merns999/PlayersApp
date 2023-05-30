@@ -69,7 +69,7 @@ $(document).ready(function () {
 
         //Adding a player using the post request
         self.addPlayer = function () {
-            debugger;
+            /*debugger;*/
             var data = {
                 name: self.Name(),
                 email: self.Email(),
@@ -153,12 +153,12 @@ $(document).ready(function () {
 
     $('#addPlayerForm').submit(function (event) {
         event.preventDefault();
-        debugger;
+        /*debugger;*/
         viewModel.addPlayer();
     });
     $('#editPlayerForm').submit(function (event) {
         event.preventDefault();
-        debugger;
+        /*debugger;*/
         viewModel.editPlayer();
     });
 
