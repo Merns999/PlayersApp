@@ -1,68 +1,64 @@
-﻿@page "{id:Guid}"
-@model PlayersApp.Pages.Players.EditModel
+﻿@page 
 @{
-    var message = ViewData["Message"]?.ToString();
 }
-
+<head>
+    <script src="~/js/JQuery.js"></script>
+    <script src="~/js/Knockout.js"></script>
+    <script src="~/js/site.js"></script>
+</head>
 <h2 class="mb-3">Edit</h2>
-<form method="post">
-    @if (!string.IsNullOrWhiteSpace(message))
-    {
-            <div class="alert alert-success" role="alert">
-            @message
-            </div>
-    }
+<form id="editPlayerForm">
     <div class="col-md-6 mb-3">
         <label for="id">Id</label>
-        <input type="text" class="form-control" id="id" asp-for="editPlayerVM.Id" readonly>
+        <input type="text" class="form-control" id="id" readonly>
         <div class="invalid-feedback">
             Valid name is required.
         </div>
     </div>
-    <div class="col-md-6 mb-3">
+     <div class="col-md-6 mb-3">
         <label for="Name">Full name</label>
-        <input type="text" class="form-control" id="Name" asp-for="editPlayerVM.Name">
+        <input type="text" class="form-control" id="Name" data-bind="value:Name" required>
         <div class="invalid-feedback">
             Valid name is required.
         </div>
     </div>
     <div class="mb-3">
-        <label for="email">Email </label>
-        <input type="email" class="form-control" id="email" asp-for="editPlayerVM.Email">
+        <label for="email">Email </label> 
+        <input type="email" class="form-control" id="email" data-bind="value:Email" placeholder="you@example.com" >
         <div class="invalid-feedback">
         Please enter a valid email address for shipping updates.
         </div>
     </div>
     <div class="col-md-5 mb-3">
         <label for="rank">Rank</label>
-        <select class="custom-select d-block w-100" id="rank" asp-for="editPlayerVM.Rank" required>
+        <select class="custom-select d-block w-100" id="rank" data-bind="value:Rank" required>
         <option value="">Choose...</option>
-        @for (int i = 1; i <= 10; i++)
-        {
-                    <option>@i</option>
-        }
+            @for (int i = 1; i <= 10; i++)
+            {
+                        <option>@i</option>
+            }
         </select>
         <div class="invalid-feedback">
-            Please select a rank.
+            Please select a valid country.
         </div>
     </div>
     <div class="col-md-6 mb-3">
         <label for="salary">Salary</label>
-        <input type="number" class="form-control" id="salary" asp-for="editPlayerVM.Salary" required>
+        <input type="number" class="form-control" id="salary" data-bind="value:Salary" required>
         <div class="invalid-feedback">
             Valid Salary is required.
         </div>
     </div>
     <div class="col-md-6 mb-3">
         <label for="phone">Phone Number</label>
-        <input type="number" class="form-control" id="phone" asp-for="editPlayerVM.Phone" required>
+        <input type="number" class="form-control" id="phone" data-bind="value:Phone" required>
         <div class="invalid-feedback">
             Valid Phone Number is required.
         </div>
     </div>
     <div class="col-md-6 mb-3">
         <label for="url">Url</label>
-        <input type="url" class="form-control" id="url" asp-for="editPlayerVM.Url">
+        <input type="url" class="form-control" id="url" data-bind="value:Url" required>
         <div class="invalid-feedback">
             Valid name is required.
         </div>

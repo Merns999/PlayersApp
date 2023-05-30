@@ -1,27 +1,23 @@
-﻿@page "{id:Guid}"
-@model PlayersApp.Pages.Players.DeleteModel
-@{
-    var message = ViewData["Message"]?.ToString();
-}
+﻿@page 
 
+<head>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/JQuery.js"></script>
+    <script src="~/js/Knockout.js"></script>
+</head>
 <h2 class="mb-3">Delete</h2>
-<form method="post">
-    @if (!string.IsNullOrWhiteSpace(message))
-    {
-            <div class="alert alert-success" role="alert">
-            @message
-            </div>
-    }
+<form id="deleteForm">
+    
     <div class="col-md-6 mb-3">
         <label for="id">Id</label>
-        <input type="text" class="form-control" id="id" asp-for="deletePlayerVM.Id" value="deletePlayerVM.Id" readonly>
+        <input type="text" class="form-control" id="id" data-bind="value: id" readonly>
         <div class="invalid-feedback">
             Valid name is required.
         </div>
     </div>
     <div class="col-md-6 mb-3">
         <label for="Name">Full name</label>
-        <input type="text" class="form-control" id="Name"  value="deletePlayerVM.Name">
+        <input type="text" class="form-control" id="Name"  data-bind="text: Name">
         <div class="invalid-feedback">
             Valid name is required.
         </div>

@@ -42,7 +42,8 @@
 $(document).ready(function () {
     function ViewModel() {
         var self = this;
-        debugger;
+        /*debugger;*/
+        self.Id = ko.observable("");
         self.Name = ko.observable("");
         self.Email = ko.observable("");
         self.Rank = ko.observable("");
@@ -50,7 +51,25 @@ $(document).ready(function () {
         self.Phone = ko.observable("");
         self.Url = ko.observable("");
 
+        var getData = function () {
+            $.ajax({
+                type: "GET",
+                url: "https://localhost:7156/api/Players",
+                success: function (response) {
+
+                    //handle responce
+                },
+
+                error: function (error) {
+                   //handle the error
+                }
+            });
+
+        }
+
+        //Adding a player using the post request
         self.addPlayer = function () {
+            debugger;
             var data = {
                 name: self.Name(),
                 email: self.Email(),
@@ -67,7 +86,58 @@ $(document).ready(function () {
                 contentType: "application/json",
                 success: function (response) {
                     alert("Player added successfully");
-                    window.location.href = "/List";
+                    window.location.href = "/Players/List";
+                },
+                error: function (error) {
+                    alert("Player not added!!!");
+                }
+            });
+        };
+        
+        
+
+        self.editPlayer = function (id) {
+            
+            var editPlayerId = localStorage.getItem('editPlayerId');
+            localStorage.removeItem('editPlayerId');
+            console.log(editPlayerId);
+            /*debugger;*/
+            var data = {
+                id: editPlayerId,
+                name: self.Name(),
+                email: self.Email(),
+                rank: self.Rank(),
+                salary: self.Salary(),
+                phone: self.Phone(),
+                url: self.Url()
+            };
+
+            $.ajax({
+                type: "PUT",
+                url: "https://localhost:7156/api/Players/" + editPlayerId,
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function (response) {
+                    alert("Player edited successfully");
+                    window.location.href = "/Players/List";
+                },
+                error: function (error) {
+                    alert("Player not edited!!!");
+                }
+            });
+        };
+
+
+        self.deletePlayer = function () {
+
+            $.ajax({
+                type: "DELETE",
+                url: "https://localhost:7156/api/Players" + id,
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function (response) {
+                    alert("Player deleted successfully");
+                    window.location.href = "/Players/List";
                 },
                 error: function (error) {
                     alert("Player not added!!!");
@@ -75,6 +145,8 @@ $(document).ready(function () {
             });
         };
     }
+
+
 
     var viewModel = new ViewModel();
     ko.applyBindings(viewModel);
@@ -84,6 +156,12 @@ $(document).ready(function () {
         debugger;
         viewModel.addPlayer();
     });
+    $('#editPlayerForm').submit(function (event) {
+        event.preventDefault();
+        debugger;
+        viewModel.editPlayer();
+    });
+
 });
 
 
