@@ -51,21 +51,6 @@ $(document).ready(function () {
         self.Phone = ko.observable("");
         self.Url = ko.observable("");
 
-        var getData = function () {
-            $.ajax({
-                type: "GET",
-                url: "https://localhost:7156/api/Players",
-                success: function (response) {
-
-                    //handle responce
-                },
-
-                error: function (error) {
-                   //handle the error
-                }
-            });
-
-        }
 
         //Adding a player using the post request
         self.addPlayer = function () {
@@ -78,7 +63,7 @@ $(document).ready(function () {
                 phone: self.Phone(),
                 url: self.Url()
             };
-
+            /*debugger;*/
             $.ajax({
                 type: "POST",
                 url: "https://localhost:7156/api/Players",
@@ -97,9 +82,11 @@ $(document).ready(function () {
         
 
         self.editPlayer = function (id) {
+            /*debugger;*/
+            //var editPlayerId = localStorage.getItem('editPlayerId');
+            //localStorage.removeItem('editPlayerId');
+            var editPlayerId = sessionStorage.getItem('editPlayerId');
             
-            var editPlayerId = localStorage.getItem('editPlayerId');
-            localStorage.removeItem('editPlayerId');
             console.log(editPlayerId);
             /*debugger;*/
             var data = {
@@ -111,7 +98,7 @@ $(document).ready(function () {
                 phone: self.Phone(),
                 url: self.Url()
             };
-
+            /*debugger;*/
             $.ajax({
                 type: "PUT",
                 url: "https://localhost:7156/api/Players/" + editPlayerId,
@@ -129,7 +116,7 @@ $(document).ready(function () {
 
 
         self.deletePlayer = function () {
-
+            /*debugger;*/
             $.ajax({
                 type: "DELETE",
                 url: "https://localhost:7156/api/Players" + id,

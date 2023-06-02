@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-        
+    /*debugger;*/
     $.ajax({
         type: "GET",
         url: "https://localhost:7156/api/Players",
@@ -8,7 +8,6 @@
                     
             populateTable(response);
         },
-
         error: function (error) {
             console.log("Error fetching players data:", error);
         }
@@ -33,40 +32,23 @@
             var editButton = $('<td><a class="btn btn-dark editButton">Edit</a></td>');
             editButton.find('.editButton').on('click', function () {
                 
-                localStorage.setItem('editPlayerId', player.id);
+                /*localStorage.setItem('editPlayerId', player.id);*/
+                sessionStorage.setItem('editPlayerId', player.id);
                 window.location.href = '/Players/Edit';
             });
             row.append(editButton);
             /*row.append('<td><a class="btn btn-danger" onclick="deletePlayer('+player.id+')" id="deleteButton" >Delete</a></td>');*/
             var deleteButton = $('<td><a class="btn btn-danger" id="deleteButton">Delete</a></td>');
             deleteButton.find('#deleteButton').on('click', function () {
-                deletePlayer(player.id);
+                deletePlayer(player.id, player.name);
             });
             row.append(deleteButton);
             table.append(row);
         });
         
-        function deletePlayer(id){
+        function deletePlayer(id, name){
             /*debugger;*/
-            var ans = confirm("Are you sure you want to delete " + id);
-            if (ans) {
-                $.ajax({
-                    type: "DELETE",
-                    url: "https://localhost:7156/api/Players/" + id,
-                    success: function (response) {
-                        alert("Player DELETED successfully");
-                        window.location.href = "/Players/List";
-                    },
-
-                    error: function (error) {
-                        alert("Error fetching players data:", error);
-                    }
-                });
-            }
-        };
-        function editPlayer(id) {
-            /*debugger;*/
-            var ans = confirm("Are you sure you want to delete " + id);
+            var ans = confirm("Are you sure you want to delete " + name);
             if (ans) {
                 $.ajax({
                     type: "DELETE",
