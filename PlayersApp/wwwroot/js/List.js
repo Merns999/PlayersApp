@@ -1,11 +1,11 @@
 ﻿$(document).ready(function () {
 
-    /*debugger;*/
+    debugger;
     $.ajax({
         type: "GET",
         url: "https://localhost:7156/api/Players",
         success: function (response) {
-                    
+
             populateTable(response);
         },
         error: function (error) {

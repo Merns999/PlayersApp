@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PlayersApp.styles.css" asp-append-version="true" />
+    <style>
+        .jumbotron {
+            background-image: url('recruitment_poster.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+        }
+        .card-img-top {
+            height: 300px;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -34,8 +46,9 @@
                 </div>
             </div>
             @*<partial name="_LoginPartial" />*@
-        </nav>
+        </nav>  
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -52,7 +65,15 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/JQuery.js"></script>
     <script src="~/js/Knockout.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+    
+
+
+
+

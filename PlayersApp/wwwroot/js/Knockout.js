@@ -3,7 +3,7 @@
  * (c) The Knockout.js team - http://knockoutjs.com/
  * License: MIT (http://www.opensource.org/licenses/mit-license.php)
  */
-
+debugger;
 (function () {
     (function (n) {
         var A = this || (0, eval)("this"), w = A.document, R = A.navigator, v = A.jQuery, H = A.JSON; v || "undefined" === typeof jQuery || (v = jQuery); (function (n) { "function" === typeof define && define.amd ? define(["exports", "require"], n) : "object" === typeof exports && "object" === typeof module ? n(module.exports || exports) : n(A.ko = {}) })(function (S, T) {
