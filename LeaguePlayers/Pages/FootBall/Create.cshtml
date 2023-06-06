@@ -1,5 +1,4 @@
 ﻿@page
-
 <head>
     <script src="~/js/jQuery.js"></script>
     <script src="~/js/Knockout.js"></script>
@@ -12,52 +11,52 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form id="addBasketBallPlayerForm">
+        <form id="addFootBallPlayerForm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label  class="control-label"></label>
+                <label  class="control-label">Name</label>
                 <input type="text" class="form-control" data-bind="value: Name" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label"></label>
+                <label  class="control-label">Email</label>
                 <input type="email" class="form-control" data-bind="value: Email" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label"></label>
-                <input type="url" class="form-control" data-bind="value: Url"/>
+                <label  class="control-label">Url</label>
+                <input type="url" class="form-control" data-bind="value: Url" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label"></label>
-                <input type="tel" class="form-control" data-bind="value: Phone" />
+                <label  class="control-label">Phone</label>
+                <input type="tel" class="form-control" data-bind="value: Phone"/>
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label"></label>
-                <input type="text" class="form-control" data-bind="value: Hand" />
+                <label  class="control-label">Foot</label>
+                <input type="text" class="form-control" data-bind="value: Foot" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label"></label>
-                <select class="custom-select d-block w-100" id="rank" data-bind="value:Rank" required>
+                <label class="control-label">Rank</label>
+                 <select class="custom-select d-block w-100" id="rank" data-bind="value:Rank" required>
                 <option value="">Choose...</option>
-                            @for (int i = 1; i <= 10; i++)
-                            {
-                                <option>@i</option>
-                            }
+                    @for (int i = 1; i <= 10; i++)
+                    {
+                         <option>@i</option>
+                    }
                 </select>
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label"></label>
-                <input type="number" class="form-control" data-bind="value: Salary"/>
+                <label  class="control-label">Salary</label>
+                <input type="number" class="form-control" data-bind="value: Salary" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label"></label>
-                <input type="number" class="form-control" data-bind="value: Shots" />
+                <label class="control-label">Goals</label>
+                <input type="number" class="form-control" data-bind="value: Goals"/>
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -1,74 +1,63 @@
 ﻿@page
 
-<head>
-    <script src="~/js/jQuery.js"></script>
-    <script src="~/js/Knockout.js"></script>
-    <script src="~/js/site.js"></script>
-</head>
-
-<h1>Create</h1>
+<h1>Edit</h1>
 
 <h4>BasketBall</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form id="addBasketBallPlayerForm">
+        <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" Id" />
             <div class="form-group">
                 <label  class="control-label"></label>
-                <input type="text" class="form-control" data-bind="value: Name" />
-                <span  class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label  class="control-label"></label>
-                <input type="email" class="form-control" data-bind="value: Email" />
+                <input  class="form-control" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label  class="control-label"></label>
-                <input type="url" class="form-control" data-bind="value: Url"/>
+                <input  class="form-control" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label  class="control-label"></label>
-                <input type="tel" class="form-control" data-bind="value: Phone" />
+                <input  class="form-control" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label  class="control-label"></label>
-                <input type="text" class="form-control" data-bind="value: Hand" />
-                <span  class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label"></label>
-                <select class="custom-select d-block w-100" id="rank" data-bind="value:Rank" required>
-                <option value="">Choose...</option>
-                            @for (int i = 1; i <= 10; i++)
-                            {
-                                <option>@i</option>
-                            }
-                </select>
+                <input  class="form-control" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label  class="control-label"></label>
-                <input type="number" class="form-control" data-bind="value: Salary"/>
+                <input  class="form-control" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label"></label>
-                <input type="number" class="form-control" data-bind="value: Shots" />
+                <label  class="control-label"></label>
+                <input  class="form-control" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label  class="control-label"></label>
+                <input  class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <input  class="form-control" />
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

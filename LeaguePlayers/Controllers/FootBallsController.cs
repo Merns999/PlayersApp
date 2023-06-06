@@ -14,9 +14,9 @@ namespace LeaguePlayers.Controllers
     [ApiController]
     public class FootBallsController : ControllerBase
     {
-        private readonly LeaguePlayersContext _context;
+        private readonly LeaguePlayersDbContext _context;
 
-        public FootBallsController(LeaguePlayersContext context)
+        public FootBallsController(LeaguePlayersDbContext context)
         {
             _context = context;
         }

@@ -3,8 +3,35 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<head>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/Knockout.js"></script>
+    <script src="~/js/jQuery.js"></script>
+</head>
+<!-- Recruitment Posters -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg?w=600&q=60" alt="Recruitment Poster 1">
+                <div class="card-body">
+                    <h5 class="card-title">Football</h5>
+                    <p class="card-text">Apply for football recruitment</p>
+                    <a href="/FootBall/Create" class="btn btn-sm btn-primary">Apply Now</a>
+                    <a  id="BasketButton" class="btn btn-success btn-sm">See List</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="https://goredbirds.com/images/2022/8/8/bball.jpg?width=942&quality=80&format=jpg" alt="Recruitment Poster 2">
+                <div class="card-body">
+                    <h5 class="card-title">Basketball</h5>
+                    <p class="card-text">Let's ball, apply for basketball here.</p>
+                    <a href="/BasketBall/Create" class="btn btn-sm btn-primary">Apply Now</a>
+                    <a  id="FootButton" class="btn btn-success btn-sm">See List</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

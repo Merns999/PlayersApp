@@ -6,8 +6,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<LeaguePlayersContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("LeaguePlayersContext") ?? throw new InvalidOperationException("Connection string 'LeaguePlayersContext' not found.")));
+builder.Services.AddControllers();
+
+//builder.Services.AddDbContext<LeaguePlayersContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("LeaguePlayersContext") ?? throw new InvalidOperationException("Connection string 'LeaguePlayersContext' not found.")));
+
+//builder.Services.AddDbContext<LeaguePlayersDbContext>(options =>
+//    options.UseSqlServer("leagueplayersdbconnectionstring", sqlOptions =>
+//        sqlOptions.EnableRetryOnFailure()));
+builder.Services.AddDbContext<LeaguePlayersDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("LeaguePlayersContext")));
+
+
 builder.Services.AddControllers();
 
 var app = builder.Build();
@@ -23,6 +32,8 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.MapControllers();
 
 app.UseAuthorization();
 

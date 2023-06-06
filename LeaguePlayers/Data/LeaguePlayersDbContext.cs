@@ -7,9 +7,10 @@ namespace LeaguePlayers.Data
     {
         public LeaguePlayersDbContext(DbContextOptions options) : base(options)
         {
+
         }
-        public DbSet<FootBall> FootBallPlayers { get; set; }
-        public DbSet<BasketBall> BasketBalllayers { get; set; }
+        public DbSet<FootBall> FootBall { get; set; }
+        public DbSet<BasketBall> BasketBall { get; set; }
     }
 }
 
