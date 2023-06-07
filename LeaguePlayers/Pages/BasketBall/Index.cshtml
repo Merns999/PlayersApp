@@ -4,34 +4,48 @@
     <script src="~/js/site.js"></script>
     <script src="~/js/Knockout.js"></script>
     <script src="~/js/jQuery.js"></script>
+    <script src="~/js/BasketList.js"></script>
 </head>
 
 <h1>BasketBall Players</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a class="btn btn-primary btn-sm" asp-page="/BasketBall/Create">Create New</a>
     <a id="BasketButton" class="btn btn-success btn-sm">See List</a>
 </p>
 <table id="BasketBallersTable" class="table">
     <thead>
         <tr>
             <th>
+                Name
             </th>
             <th>
+                Email
             </th>
             <th>
+                Phone
             </th>
             <th>
+                Salary
             </th>
             <th>
+                Hand
             </th>
             <th>
+                Rank
             </th>
             <th>
+                Shots
             </th>
             <th>
+                Url
             </th>
-            <th></th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Delete
+            </th>
         </tr>
     </thead>
     <tbody></tbody>

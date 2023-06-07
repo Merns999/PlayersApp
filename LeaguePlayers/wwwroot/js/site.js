@@ -69,18 +69,18 @@
         };
 
         this.getFootBallPlayers = function () {
-            /*debugger;*/
+            debugger;
             $.ajax({
                 type: "GET",
                 url: "http://localhost:54528/api/FootBalls",
                 success: function (responce) {
                     //handle success message
-                    window.location.href = "/FootBall/Index";
-                    console.log(responce);
+                    /*debugger;*/
+                    window.location.href = "/FootBall/Index?data=" + encodeURIComponent(JSON.stringify(responce));
                 },
                 error: function (error) {
                     //handle error
-                    console.log("ngori");
+                    console.log("Error fetching players data:", error);
                 }
             });
         };
@@ -91,16 +91,17 @@
                 url: "http://localhost:54528/api/BasketBalls",
                 success: function (responce) {
                     //handle success message
-                    window.location.href = "/BasketBall/Index";
-                    console.log(responce);
+                    window.location.href = "/BasketBall/Index?data=" + encodeURIComponent(JSON.stringify(responce));
                 },
                 error: function (error) {
                     //handle error
-                    console.log("ngori");
+                    console.log("Error fetching players data:", error);
                 }
             });
         };
     };
+
+    
 
     var viewModel = new ViewModel();
     ko.applyBindings(viewModel);
