@@ -1,30 +1,41 @@
 ﻿$(document).ready(function () {
     function ViewModel() {
         /*debugger;*/
-        this.Id = ko.observable("");
-        this.Name = ko.observable("");
-        this.Email = ko.observable("");
-        this.Url = ko.observable("");
-        this.Phone = ko.observable("");
-        this.Hand = ko.observable("");
-        this.Rank = ko.observable("");
-        this.Salary = ko.observable("");
-        this.Shots = ko.observable("");
-        this.Foot = ko.observable("");
-        this.Goals = ko.observable("");
+        var self = this;
+        //self.Id = ko.observable("");
 
-        this.addBasketBallPlayer = function () {
-            debugger;
+        //basketball stuff
+        self.Name = ko.observable("");
+        self.Email = ko.observable("");
+        self.Url = ko.observable("");
+        self.Phone = ko.observable("");
+        self.Hand = ko.observable("");
+        self.Rank = ko.observable("");
+        self.Salary = ko.observable("");
+        self.Shots = ko.observable("");
+        ///football stuff
+        self.Foot = ko.observable("");
+        self.FootRank = ko.observable("");
+        self.FootSalary = ko.observable("");
+        self.FootPhone = ko.observable("");
+        self.FootUrl = ko.observable("");
+        self.FootEmail = ko.observable("");
+        self.FootName = ko.observable("");
+        self.Goals = ko.observable("");
+        
+
+        self.addBasketBallPlayer = function () {
+            /*debugger;*/
             var data = {
                 /*Id: this.Id(),*/
-                name: this.Name(),
-                email: this.Email(),
-                url: this.Url(),
-                phone: this.Phone(),
-                hand: this.Hand(),
-                rank: this.Rank(),
-                salary: this.Salary(),
-                shots: this.Shots()
+                name: self.Name(),
+                email: self.Email(),
+                url: self.Url(),
+                phone: self.Phone(),
+                hand: self.Hand(),
+                rank: self.Rank(),
+                salary: self.Salary(),
+                shots: self.Shots()
             };
             $.ajax({
                 type: "POST",
@@ -41,42 +52,44 @@
                 }
             });
         };
-        this.addFootBallPlayer = function () {
+        self.addFootBallPlayer = function () {
             debugger;
-            var data = {
+            var fdata = {
                 //Id: this.Id(),
-                name: this.name(),
-                Email: this.Email(),
-                Url: this.Url(),
-                Phone: this.Phone(),
-                Foot: this.Hand(),
-                Rank: this.Rank(),
-                Salary: this.Salary(),
-                Goals: this.Shots()
+                name: self.FootName(),
+                email: self.FootEmail(),
+                url: self.FootUrl(),
+                phone: self.FootPhone(),
+                foot: self.Foot(),
+                rank: self.FootRank(),
+                salary: self.FootSalary(),
+                goals: self.Goals()
             };
             $.ajax({
                 type: "POST",
-                url: "http://localhost:5175/api/FootBalls",
-                data: JSON.stringify(data),
+                url: "http://localhost:54528/api/FootBalls",
+                data: JSON.stringify(fdata),
                 contentType: "application/json",
                 success: function (responce) {
                     //handle success message
-                    console.log(responce)
+                    alert("The FootBall Player was added successfully");
+                    window.location.href = "/FootBall/Index";
                 },
                 error: function (error) {
                     //handle error
+                    debugger;
                 }
             });
         };
 
-        this.getFootBallPlayers = function () {
-            debugger;
+        self.getFootBallPlayers = function () {
+            /*debugger;*/
             $.ajax({
                 type: "GET",
                 url: "http://localhost:54528/api/FootBalls",
                 success: function (responce) {
                     //handle success message
-                    debugger;
+                    /*debugger;*/
                     
                     //window.location.href = "/FootBall/Index?data=" + encodeURIComponent(JSON.stringify(responce));
                     localStorage.setItem("FootBallData", JSON.stringify(responce));
@@ -88,7 +101,7 @@
                 }
             });
         };
-        this.getBasketBallPlayers = function () {
+        self.getBasketBallPlayers = function () {
             /*debugger;*/
             $.ajax({
                 type: "GET",
@@ -114,23 +127,23 @@
 
     $('#addFootBallPlayerForm').submit(function (event) {
         event.preventDefault();
-        debugger;
+        /*debugger;*/
         viewModel.addFootBallPlayer();
     });
     $('#addBasketBallPlayerForm').submit(function (event) {
         event.preventDefault();
-        debugger;
+        /*debugger;*/
         viewModel.addBasketBallPlayer();
     });
 
     $('#BasketButton').click(function (event) {
         event.preventDefault();
-        debugger;
+        /*debugger;*/
         viewModel.getBasketBallPlayers();
     });
     $('#FootButton').click(function (event) {
         event.preventDefault();
-        debugger;
+        /*debugger;*/
         viewModel.getFootBallPlayers();
     });
 });

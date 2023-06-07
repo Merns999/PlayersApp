@@ -7,7 +7,7 @@
 
 <h1>Create</h1>
 
-<h4>BasketBall</h4>
+<h4>Add new FootBall Player</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,32 +15,31 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label  class="control-label">Name</label>
-                <input type="text" class="form-control" data-bind="value:Name" />
+                <input type="text" class="form-control" data-bind="value:FootName" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label  class="control-label">Email</label>
-                <input type="email" class="form-control" data-bind="value:Email" />
-                <span  class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label  class="control-label">Url</label>
-                <input type="url" class="form-control" data-bind="value:Url" />
+                <input type="email" class="form-control" data-bind="value:FootEmail" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label  class="control-label">Phone</label>
-                <input type="tel" class="form-control" data-bind="value:Phone"/>
+                <input type="tel" class="form-control" data-bind="value:FootPhone"/>
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label  class="control-label">Foot</label>
-                <input type="text" class="form-control" data-bind="value:Foot" />
+                <select class="custom-select d-block w-100" id="foot" data-bind="value:Foot" required>
+                    <option value="">Choose...</option>
+                    <option value="Left">Left</option>
+                    <option value="Right">Right</option>
+                </select>
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-label">Rank</label>
-                 <select class="custom-select d-block w-100" id="rank" data-bind="value:Rank" required>
+                 <select class="custom-select d-block w-100" id="rank" data-bind="value:FootRank" required>
                 <option value="">Choose...</option>
                     @for (int i = 1; i <= 10; i++)
                     {
@@ -50,13 +49,18 @@
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label">Salary</label>
-                <input type="number" class="form-control" data-bind="value: Salary" />
+                <label class="control-label">Goals</label>
+                <input type="number" class="form-control" data-bind="value: Goals"/>
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label">Goals</label>
-                <input type="number" class="form-control" data-bind="value: Goals"/>
+                <label  class="control-label">Salary</label>
+                <input type="number" class="form-control" data-bind="value:FootSalary" />
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Url</label>
+                <input type="url" class="form-control" data-bind="value:FootUrl" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">

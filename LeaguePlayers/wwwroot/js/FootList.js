@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    debugger;
+    /*debugger;*/
     //var urlParams = new URLSearchParams(window.location.search);
     //var data = urlParams.get("data");
 
@@ -12,10 +12,10 @@
     populateFootTable(jsonData);
 
     function populateFootTable(data) {
-        debugger;
+        /*debugger;*/
         if (Array.isArray(data)) {
             var table = $('#FootBallersTable');
-            debugger;
+            /*debugger;*/
             table.find('tbody').empty();
 
             data.forEach(function (player) {
@@ -42,13 +42,32 @@
                 /*row.append('<td><a class="btn btn-danger" onclick="deletePlayer('+player.id+')" id="deleteButton" >Delete</a></td>');*/
                 var deleteButton = $('<td><a class="btn btn-danger" id="deleteButton">Delete</a></td>');
                 deleteButton.find('#deleteButton').on('click', function () {
-                    //deletePlayer(player.id, player.name);
+                    deletePlayer(player.id, player.name);
                 });
                 row.append(deleteButton);
                 table.append(row);
             });
         } else {
             console.error('Invalid data format. Expected an array.');
+        }
+    };
+
+    function deletePlayer(id, name) {
+        /*debugger;*/
+        var ans = confirm("Are you sure you want to delete " + name);
+        if (ans) {
+            $.ajax({
+                type: "DELETE",
+                url: "http://localhost:54528/api/FootBalls/" + id,
+                success: function (response) {
+                    alert("Player DELETED successfully, kindly refresh the list");
+                },
+
+                error: function (error) {
+                    alert("Error fetching players data:", error);
+                    debugger;
+                }
+            });
         }
     };
 });

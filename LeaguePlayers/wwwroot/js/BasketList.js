@@ -36,16 +36,35 @@
 
                 /*localStorage.setItem('editPlayerId', player.id);*/
                 //sessionStorage.setItem('editPlayerId', player.id);
-                window.location.href = '/FootBall/Edit';
+                window.location.href = '/BasketBall/Edit';
             });
             row.append(editButton);
             /*row.append('<td><a class="btn btn-danger" onclick="deletePlayer('+player.id+')" id="deleteButton" >Delete</a></td>');*/
             var deleteButton = $('<td><a class="btn btn-danger" id="deleteButton">Delete</a></td>');
             deleteButton.find('#deleteButton').on('click', function () {
-                //deletePlayer(player.id, player.name);
+                deletePlayer(player.id, player.name);
             });
             row.append(deleteButton);
             table.append(row);
         });
+    };
+
+    function deletePlayer(id, name) {
+        debugger;
+        var ans = confirm("Are you sure you want to delete " + name);
+        if (ans) {
+            $.ajax({
+                type: "DELETE",
+                url: "http://localhost:54528/api/BasketBalls/" + id,
+                success: function (response) {
+                    alert("Player DELETED successfully, kindly refresh the list");
+                },
+
+                error: function (error) {
+                    alert("Error fetching players data:", error);
+                    debugger;
+                }
+            });
+        }
     };
 });
