@@ -15,32 +15,27 @@
         <form id="addBasketBallPlayerForm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label  class="control-label"></label>
-                <input type="text" class="form-control" data-bind="value: Name" />
+                <label  class="control-label">Name</label>
+                <input type="text" class="form-control" data-bind="value:Name" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label"></label>
-                <input type="email" class="form-control" data-bind="value: Email" />
+                <label  class="control-label">Email</label>
+                <input type="email" class="form-control" data-bind="value:Email" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label"></label>
-                <input type="url" class="form-control" data-bind="value: Url"/>
+                <label  class="control-label">Phone</label>
+                <input type="tel" class="form-control" data-bind="value:Phone" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label"></label>
-                <input type="tel" class="form-control" data-bind="value: Phone" />
+                <label  class="control-label">Hand</label>
+                <input type="text" class="form-control" data-bind="value:Hand" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label"></label>
-                <input type="text" class="form-control" data-bind="value: Hand" />
-                <span  class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label"></label>
+                <label class="control-label">Rank</label>
                 <select class="custom-select d-block w-100" id="rank" data-bind="value:Rank" required>
                 <option value="">Choose...</option>
                             @for (int i = 1; i <= 10; i++)
@@ -51,13 +46,18 @@
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label"></label>
-                <input type="number" class="form-control" data-bind="value: Salary"/>
+                <label class="control-label">Shots</label>
+                <input type="number" class="form-control" data-bind="value:Shots" />
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label"></label>
-                <input type="number" class="form-control" data-bind="value: Shots" />
+                <label  class="control-label">Salary</label>
+                <input type="number" class="form-control" data-bind="value:Salary"/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Url</label>
+                <input type="url" class="form-control" data-bind="value:Url"/>
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">

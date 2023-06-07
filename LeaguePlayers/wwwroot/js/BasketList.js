@@ -1,11 +1,14 @@
 ﻿$(document).ready(function () {
     /*debugger;*/
-    var urlParams = new URLSearchParams(window.location.search);
-    var data = urlParams.get("data");
+    //var urlParams = new URLSearchParams(window.location.search);
+    //var data = urlParams.get("data");
 
     // Parse the JSON data
-    var jsonData = JSON.parse(decodeURIComponent(data));
+    //var jsonData = JSON.parse(decodeURIComponent(data));
 
+
+    var data = localStorage.getItem("BasketBallData");
+    var jsonData = JSON.parse(data);
     // Call the populateFootTable function with the parsed data
     populateFootTable(jsonData);
 

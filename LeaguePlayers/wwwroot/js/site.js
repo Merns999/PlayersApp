@@ -2,7 +2,7 @@
     function ViewModel() {
         /*debugger;*/
         this.Id = ko.observable("");
-        this.name = ko.observable("");
+        this.Name = ko.observable("");
         this.Email = ko.observable("");
         this.Url = ko.observable("");
         this.Phone = ko.observable("");
@@ -17,14 +17,14 @@
             debugger;
             var data = {
                 /*Id: this.Id(),*/
-                name: this.name(),
-                Email: this.Email(),
-                Url: this.Url(),
-                Phone: this.Phone(),
-                Hand: this.Hand(),
-                Rank: this.Rank(),
-                Salary: this.Salary(),
-                Shots: this.Shots()
+                name: this.Name(),
+                email: this.Email(),
+                url: this.Url(),
+                phone: this.Phone(),
+                hand: this.Hand(),
+                rank: this.Rank(),
+                salary: this.Salary(),
+                shots: this.Shots()
             };
             $.ajax({
                 type: "POST",
@@ -33,7 +33,8 @@
                 contentType: "application/json",
                 success: function (responce) {
                     //handle success message
-
+                    alert("The BasketBall Player was added successfully");
+                    window.location.href = "/BasketBall/Index";
                 },
                 error: function (error) {
                     //handle error
@@ -75,8 +76,11 @@
                 url: "http://localhost:54528/api/FootBalls",
                 success: function (responce) {
                     //handle success message
-                    /*debugger;*/
-                    window.location.href = "/FootBall/Index?data=" + encodeURIComponent(JSON.stringify(responce));
+                    debugger;
+                    
+                    //window.location.href = "/FootBall/Index?data=" + encodeURIComponent(JSON.stringify(responce));
+                    localStorage.setItem("FootBallData", JSON.stringify(responce));
+                    window.location.href = "/FootBall/Index";
                 },
                 error: function (error) {
                     //handle error
@@ -91,7 +95,9 @@
                 url: "http://localhost:54528/api/BasketBalls",
                 success: function (responce) {
                     //handle success message
-                    window.location.href = "/BasketBall/Index?data=" + encodeURIComponent(JSON.stringify(responce));
+                    localStorage.setItem("BasketBallData", JSON.stringify(responce));
+                    window.location.href = "/BasketBall/Index";
+                    
                 },
                 error: function (error) {
                     //handle error
