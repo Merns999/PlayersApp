@@ -35,7 +35,7 @@
             editButton.find('.editButton').on('click', function () {
 
                 /*localStorage.setItem('editPlayerId', player.id);*/
-                //sessionStorage.setItem('editPlayerId', player.id);
+                sessionStorage.setItem('editPlayerId', player.id);
                 window.location.href = '/BasketBall/Edit';
             });
             row.append(editButton);

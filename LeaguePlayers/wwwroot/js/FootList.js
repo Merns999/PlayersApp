@@ -35,8 +35,9 @@
                 editButton.find('.editButton').on('click', function () {
 
                     /*localStorage.setItem('editPlayerId', player.id);*/
-                    //sessionStorage.setItem('editPlayerId', player.id);
+                    sessionStorage.setItem('editPlayerId', player.id);
                     window.location.href = '/FootBall/Edit';
+                    //window.location.href = '/FootBall/Edit?data = ' + encodeURIComponent(player.id);
                 });
                 row.append(editButton);
                 /*row.append('<td><a class="btn btn-danger" onclick="deletePlayer('+player.id+')" id="deleteButton" >Delete</a></td>');*/

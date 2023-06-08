@@ -118,6 +118,75 @@
                 }
             });
         };
+
+        self.editFootBallPlayer = function (id) {
+            /*debugger;*/
+            //var editPlayerId = localStorage.getItem('editPlayerId');
+            //localStorage.removeItem('editPlayerId');
+            var editPlayerId = sessionStorage.getItem('editPlayerId');
+            //var Id = urlParams.get("data");
+            /*debugger;*/
+            var data = {
+                id: editPlayerId,
+                name: self.FootName(),
+                email: self.FootEmail(),
+                url: self.FootUrl(),
+                phone: self.FootPhone(),
+                foot: self.Foot(),
+                rank: self.FootRank(),
+                salary: self.FootSalary(),
+                goals: self.Goals()
+            };
+            /*debugger;*/
+            $.ajax({
+                type: "PUT", 
+                url: "http://localhost:54528/api/FootBalls/" + editPlayerId,
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function (response) {
+                    alert("Player edited successfully");
+                    window.location.href = "/FootBall/Index";
+                },
+                error: function (error) {
+                    alert("Player not edited!!!");
+                    debugger;
+                }
+            });
+        };
+        self.editBasketBallPlayer = function (id) {
+            /*debugger;*/
+            //var editPlayerId = localStorage.getItem('editPlayerId');
+            //localStorage.removeItem('editPlayerId');
+            var editPlayerId = sessionStorage.getItem('editPlayerId');
+            //var Id = urlParams.get("data");
+            /*debugger;*/
+            var data = {
+                id: editPlayerId,
+                name: self.Name(),
+                email: self.Email(),
+                url: self.Url(),
+                phone: self.Phone(),
+                hand: self.Hand(),
+                rank: self.Rank(),
+                salary: self.Salary(),
+                shots: self.Shots()
+            };
+            /*debugger;*/
+            $.ajax({
+                type: "PUT",
+                url: "http://localhost:54528/api/BasketBalls/" + editPlayerId,
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function (response) {
+                    alert("Player edited successfully");
+                    window.location.href = "/BasketBall/Index";
+                },
+                error: function (error) {
+                    alert("Player not edited!!!");
+                    debugger;
+                }
+            });
+        };
     };
 
     
@@ -145,5 +214,16 @@
         event.preventDefault();
         /*debugger;*/
         viewModel.getFootBallPlayers();
+    });
+
+    $('#editFootBallPlayerForm').submit(function (event) {
+        event.preventDefault();
+        /*debugger;*/
+        viewModel.editFootBallPlayer();
+    });
+    $('#editBasketBallPlayerForm').submit(function (event) {
+        event.preventDefault();
+        /*debugger;*/
+        viewModel.editBasketBallPlayer();
     });
 });
