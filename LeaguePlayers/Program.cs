@@ -1,4 +1,5 @@
 using LeaguePlayers.Data;
+using LeaguePlayers.Repositories.EFCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -16,6 +17,8 @@ builder.Services.AddControllers();
 //        sqlOptions.EnableRetryOnFailure()));
 builder.Services.AddDbContext<LeaguePlayersDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("LeaguePlayersContext")));
 
+builder.Services.AddScoped<EfCoreBasketBallRepository>();
+builder.Services.AddScoped<EfCoreFootBallRepository>();
 
 builder.Services.AddControllers();
 
