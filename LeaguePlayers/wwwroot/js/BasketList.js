@@ -50,7 +50,7 @@
     };
 
     function deletePlayer(id, name) {
-        debugger;
+        /*debugger;*/
         var ans = confirm("Are you sure you want to delete " + name);
         if (ans) {
             $.ajax({

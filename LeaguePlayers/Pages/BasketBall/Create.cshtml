@@ -12,7 +12,7 @@
 <hr/>
 <div class="row">
     <div class="col-md-4">
-        <form id="addBasketBallPlayerForm">
+        <form >
             
             <div class="form-group">
                 <label  class="control-label">Name</label>
@@ -31,21 +31,21 @@
             </div>
             <div class="form-group">
                 <label  class="control-label">Hand</label>
-                <select class="custom-select d-block w-100" id="hand" data-bind="value:Hand" required>
-                    <option value="">Choose...</option>
+                <select class="custom-select d-block w-100" id="hand" data-bind="options:Hand" required>
+                   @* <option value="">Choose...</option>
                     <option value="Left">Left</option>
-                    <option value="Right">Right</option>
+                    <option value="Right">Right</option>*@
                 </select>
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-label">Rank</label>
-                <select class="custom-select d-block w-100" id="rank" data-bind="value:Rank" required>
-                <option value="">Choose...</option>
+                <select class="custom-select d-block w-100" id="rank" data-bind="options:Rank" required>
+                @*<option value="">Choose...</option>
                             @for (int i = 1; i <= 10; i++)
                             {
                                 <option>@i</option>
-                            }
+                            }*@
                 </select>
                 <span  class="text-danger"></span>
             </div>
@@ -65,7 +65,7 @@
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input value="Create" data-bind="onClick: addBasketBallPlayer" class="btn btn-primary" />
             </div>
         </form>
     </div>

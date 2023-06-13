@@ -9,13 +9,13 @@
         self.Email = ko.observable("");
         self.Url = ko.observable("");
         self.Phone = ko.observable("");
-        self.Hand = ko.observable("");
-        self.Rank = ko.observable("");
+        self.Hand = ko.observableArray(['Right', 'Left']);
+        self.Rank = ko.observableArray([1,2,3,4,5,6,7,8,9,10]);
         self.Salary = ko.observable("");
         self.Shots = ko.observable("");
         ///football stuff
-        self.Foot = ko.observable("");
-        self.FootRank = ko.observable("");
+        self.Foot = ko.observableArray(['Right', 'Left']);
+        self.FootRank = ko.observableArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
         self.FootSalary = ko.observable("");
         self.FootPhone = ko.observable("");
         self.FootUrl = ko.observable("");
@@ -39,7 +39,7 @@
             };
             $.ajax({
                 type: "POST",
-                url: "http://localhost:54528/api/BasketBalls",
+                url: "/api/BasketBalls",
                 data: JSON.stringify(data),
                 contentType: "application/json",
                 success: function (responce) {
@@ -49,11 +49,12 @@
                 },
                 error: function (error) {
                     //handle error
+                    
                 }
             });
         };
         self.addFootBallPlayer = function () {
-            debugger;
+            /*debugger;*/
             var fdata = {
                 //Id: this.Id(),
                 name: self.FootName(),

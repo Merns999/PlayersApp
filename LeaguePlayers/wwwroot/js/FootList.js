@@ -6,7 +6,6 @@
     // Parse the JSON data
     //var jsonData = JSON.parse(decodeURIComponent(data));
 
-
     var data = localStorage.getItem("FootBallData");
     var jsonData = JSON.parse(data);
     populateFootTable(jsonData);
