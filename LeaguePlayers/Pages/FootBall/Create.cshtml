@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label  class="control-label">Foot</label>
-                <select class="custom-select d-block w-100" id="foot" data-bind="options:Foot, optionsCaption:Foot" required>
+                <select class="custom-select d-block w-100" id="foot" data-bind="options:Foot, optionsCaption:'Which foot is he'" required>
                     @*<option value="">Choose...</option>
                     <option value="Left">Left</option>
                     <option value="Right">Right</option>*@
@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Rank</label>
-                 <select class="custom-select d-block w-100" id="rank" data-bind="options:FootRank, optionsCaption:Rank" required>
+                 <select class="custom-select d-block w-100" id="rank" data-bind="options:FootRank, optionsCaption:'What rank'" required>
                 @*<option value="">Choose...</option>
                     @for (int i = 1; i <= 10; i++)
                     {
@@ -64,7 +64,7 @@
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input  data-bind="onClick: addFootBallPlayer" value="Create" class="btn btn-primary" />
+                <input  data-bind="click: addFootBallPlayer" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

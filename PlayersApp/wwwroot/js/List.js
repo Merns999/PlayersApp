@@ -1,9 +1,9 @@
 ﻿$(document).ready(function () {
 
-    debugger;
+    /*debugger;*/
     $.ajax({
         type: "GET",
-        url: "https://localhost:7156/api/Players",
+        url: "/api/Players",
         success: function (response) {
 
             populateTable(response);
@@ -52,7 +52,7 @@
             if (ans) {
                 $.ajax({
                     type: "DELETE",
-                    url: "https://localhost:7156/api/Players/" + id,
+                    url: "/api/Players/" + id,
                     success: function (response) {
                         alert("Player DELETED successfully");
                         window.location.href = "/Players/List";

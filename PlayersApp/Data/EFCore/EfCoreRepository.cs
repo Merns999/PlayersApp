@@ -38,6 +38,10 @@ namespace PlayersApp.Data.EFCore
         {
             return await _context.Set<TEntity>().FindAsync(id);
         }
+        public async Task<TEntity> GetByEmail(string email)
+        {
+            return await _context.Set<TEntity>().FindAsync(email);
+        }
 
         public async Task<List<TEntity>> GetAll()
         {
