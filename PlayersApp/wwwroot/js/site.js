@@ -1,51 +1,11 @@
-﻿
-
-//$(document).ready(function () {
-//    $('#addplayerform').submit(function (event) {
-//        event.preventdefault();
-//        debugger;
-//        var name = $("#name").val();
-//        var email = $("#email").val();
-//        var rank = $("#rank").val();
-//        var salary = $("#salary").val();
-//        var phone = $("#phone").val();
-//        var url = $("#url").val();
-
-
-//        var data = {
-//            name: name,
-//            email: email,
-//            rank: rank,
-//            salary: salary,
-//            phone: phone,
-//            url: url
-//        };
-
-
-//        $.ajax({
-//            type: "post",
-//            url: "https://localhost:7156/api/players",
-//            /*url: "https://localhost:44854/api/players", */
-//            data: json.stringify(data),
-//            contenttype: "application/json",
-//            success: function (response) {
-//                alert("player added successfully");
-//                window.location.href = "players/list";
-//            },
-//            error: function (error) {
-//                alert("player not added!!!");
-//            }
-//        });
-//    });
-//});
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
     function ViewModel() {
         var self = this;
         /*debugger;*/
         self.Id = ko.observable("");
         self.Name = ko.observable("");
         self.Email = ko.observable("");
+        self.Ranks =  ko.observableArray([1, 2, 3, 4, 5]);
         self.Rank = ko.observable("");
         self.Salary = ko.observable("");
         self.Phone = ko.observable("");
@@ -54,7 +14,7 @@ $(document).ready(function () {
 
         //Adding a player using the post request
         self.addPlayer = function () {
-            /*debugger;*/
+            debugger;
             var data = {
                 name: self.Name(),
                 email: self.Email(),
@@ -66,11 +26,14 @@ $(document).ready(function () {
             /*debugger;*/
             $.ajax({
                 type: "POST",
-                url: "https://localhost:7156/api/Players",
+                url: "/api/Players",
                 data: JSON.stringify(data),
                 contentType: "application/json",
                 success: function (response) {
-                    alert("Player added successfully");
+                    setTimeout(function () {
+                        document.querySelector('.alert("Player added successfully")');
+                    }, 30000);
+                    /*alert("Player added successfully")*/;
                     window.location.href = "/Players/List";
                 },
                 error: function (error) {
@@ -101,7 +64,7 @@ $(document).ready(function () {
             /*debugger;*/
             $.ajax({
                 type: "PUT",
-                url: "https://localhost:7156/api/Players/" + editPlayerId,
+                url: "/api/Players/" + editPlayerId,
                 data: JSON.stringify(data),
                 contentType: "application/json",
                 success: function (response) {
@@ -119,7 +82,7 @@ $(document).ready(function () {
             /*debugger;*/
             $.ajax({
                 type: "DELETE",
-                url: "https://localhost:7156/api/Players" + id,
+                url: "/api/Players" + id,
                 data: JSON.stringify(data),
                 contentType: "application/json",
                 success: function (response) {
